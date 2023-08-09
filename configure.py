@@ -1,0 +1,3 @@
+info = {
+'HEADER': 'TITLE',
+}

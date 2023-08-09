@@ -1,0 +1,2 @@
+python-aternos
+pyTelegramBotAPI
