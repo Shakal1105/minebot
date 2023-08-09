@@ -118,6 +118,8 @@ class TelegramBot():
                         arr = text.split()
                         if not arr[1] in info:
                             self.bot.send_message(chat_id, f"{arr[1]} not in list use `list'", parse_mode="Markdown")
+                        elif arr[1] == "HEADER" or arr[1] == "name":
+                            self.bot.send_message(chat_id, "CAN NOT DELETE MAIN NOTE")
                         else:
                             del info[arr[1]]
                             self.bot.send_message(chat_id, f"{arr[1]} has been deleted")
