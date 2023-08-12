@@ -69,7 +69,7 @@ class TelegramBot():
 
             @self.bot.message_handler(commands=["server"])
             def server(m):
-                self.bot.send_message(m.chat.id, "[[[https://aternos.org/servers/]]]")
+                self.bot.send_message(m.chat.id, f"[[[data["link"]]]]")
 
             @self.bot.message_handler(commands=["hide"])
             def server(m):
@@ -126,7 +126,7 @@ class TelegramBot():
             def text(m):
                 chat_id, user_id, text = m.chat.id, m.from_user.id, m.text.lower()
                 if text == "join server":
-                    self.bot.send_message(chat_id, "TAP ==> https://add.aternos.org/lpsh11 <== TAP")
+                    self.bot.send_message(chat_id, f"TAP ==> data["add"] <== TAP")
                 elif int(user_id) not in self.admin and int(user_id) not in self.user:
                     print(user_id)
                     if text == "+":
@@ -185,10 +185,12 @@ if __name__ == "__main__":
     Bot = TelegramBot()
     data = {
         "Token": "6693525212:AAH15wKF0AzN0g1raU6EtbFjzz--vgaOJ5k",
-        "Server_address": "lpsh11.aternos.org",
-        "Server_port": 46773,
-        "version":"1.18.12.01",
-        "edition":"bedrock(mine pocket edotion)"
+        "Server_address": "lpsh1.aternos.org",
+        "Server_port": 35064,
+        "version":"1.20.12.01",
+        "edition":"bedrock(mine pocket edotion)",
+        "add":"https://add.aternos.org/lpsh1",
+        "link":"https://aternos.org/servers/"
     }
 
     Bot.start()
