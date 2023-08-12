@@ -126,7 +126,7 @@ class TelegramBot():
             def text(m):
                 chat_id, user_id, text = m.chat.id, m.from_user.id, m.text.lower()
                 if text == "join server":
-                    self.bot.send_message(chat_id, f"TAP ==> {data["add"]} <== TAP")
+                    self.bot.send_message(chat_id, "TAP ==> {} <== TAP".format(data["add"]))
                 elif int(user_id) not in self.admin and int(user_id) not in self.user:
                     print(user_id)
                     if text == "+":
