@@ -1,6 +1,5 @@
-import python_aternos.aterrors
+import python_aternos.aterrors, telebot
 from python_aternos import Client
-import telebot
 from configure import info
 
 account_dict = {}
@@ -9,7 +8,7 @@ for i in accounts.readlines():
     lis = i.replace("\n", "").split(":")
     account_dict[lis[0]] = lis[1]
 accounts.close()
-Login_first = list(account_dict.keys())[1]
+
 
 class Aternos():
     def __init__(self, login, passwd):
@@ -28,8 +27,14 @@ class Aternos():
 class TelegramBot():
     def __init__(self):
         self.check_error=1
-        self.log, self.pas = Login_first, account_dict[Login_first]
-        print("Starting...")
+        if len(list(account_dict.keys())) == 1:
+            bot = telebot.TeleBot(data["Token"])
+            bot.send_message(chat_id=-1001803120110, text="List accounts is EMPTY")
+            exit()
+        else:
+            Login_first = list(account_dict.keys())[1]
+            self.log, self.pas = Login_first, account_dict[Login_first]
+            print("Starting...")
 
     def AccountError(self):
         try:
@@ -49,7 +54,7 @@ class TelegramBot():
                 bot = telebot.TeleBot(data["Token"])
                 bot.send_message(chat_id=-1001803120110, text="List accounts is EMPTY")
                 exit()
-
+                
     def start(self):
         if self.check_error == 1:
             self.check_error = 0
@@ -182,7 +187,6 @@ class TelegramBot():
 
 
 if __name__ == "__main__":
-    Bot = TelegramBot()
     data = {
         "Token": "6693525212:AAH15wKF0AzN0g1raU6EtbFjzz--vgaOJ5k",
         "Server_address": "lpsh1.aternos.org",
@@ -192,5 +196,5 @@ if __name__ == "__main__":
         "add":"https://add.aternos.org/lpsh1",
         "link":"https://aternos.org/servers/"
     }
-
+    Bot = TelegramBot()
     Bot.start()
