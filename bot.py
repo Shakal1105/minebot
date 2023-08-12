@@ -69,7 +69,7 @@ class TelegramBot():
 
             @self.bot.message_handler(commands=["server"])
             def server(m):
-                self.bot.send_message(m.chat.id, f"||| {data["link"]} |||")
+                self.bot.send_message(m.chat.id, "||| {} |||".format(data["link"]))
 
             @self.bot.message_handler(commands=["hide"])
             def server(m):
