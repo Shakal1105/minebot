@@ -30,6 +30,7 @@ class TelegramBot():
         if len(list(account_dict.keys())) == 1:
             bot = telebot.TeleBot(data["Token"])
             bot.send_message(chat_id=-1001803120110, text="List accounts is EMPTY")
+            print("list accounts EMPTY")
             exit()
         else:
             Login_first = list(account_dict.keys())[1]
